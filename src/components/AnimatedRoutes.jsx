@@ -9,6 +9,8 @@ import { AnimatePresence, motion } from 'framer-motion'; // Import motion from f
 import Contact from './Contact';
 
 const AnimatedRoutes = () => {
+  const pathname = window.location.pathname.replace(/^\//, ''); // Remove leading slash
+
   return (
     <AnimatePresence>
       <div className='w-full h-full rounded-lg bg-[#BBC6C8]'>
@@ -30,13 +32,13 @@ const AnimatedRoutes = () => {
           exit={{ opacity: 0 }}
         >
           {/* Render components based on the current URL */}
-          {window.location.pathname === '/colleges' && <Colleges />}
-          {window.location.pathname === '/aboutus' && <AboutUs />}
-          {window.location.pathname === '/Science' && <Science />}
-          {window.location.pathname === '/Management' && <Management />}
-          {window.location.pathname === '/Law' && <Law />}
-          {window.location.pathname === '/' && <Home />}
-          {window.location.pathname === '/contactus' && <Contact />}
+          {pathname === 'colleges' && <Colleges />}
+          {pathname === 'aboutus' && <AboutUs />}
+          {pathname === 'Science' && <Science />}
+          {pathname === 'Management' && <Management />}
+          {pathname === 'Law' && <Law />}
+          {pathname === '' && <Home />}
+          {pathname === 'contactus' && <Contact />}
         </motion.div>
       </div>
     </AnimatePresence>
